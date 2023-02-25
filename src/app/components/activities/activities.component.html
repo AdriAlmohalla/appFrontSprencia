@@ -1,1 +1,10 @@
-<p>activities works!</p>
+<div class="container">
+  <h1>Actividades disponibles</h1>
+  <!-- usamos el componente detalle-listado para pintar todas las actividades en pantalla -->
+  <div class="d-flex gap-3 flex-wrap justify-content-center mt-4">
+    <app-detalle-listado-actividades *ngFor="let actividad of listadoActividades" [titulo]="actividad.titulo"
+      [descripcion]="actividad.descripcion" [horario]="actividad.horario_id" [precio]="actividad.precio">
+    </app-detalle-listado-actividades>
+  </div>
+
+</div>
