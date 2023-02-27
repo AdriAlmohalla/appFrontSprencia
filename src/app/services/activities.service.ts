@@ -8,7 +8,7 @@ import { Actividad } from '../interfaces/actividad';
 })
 export class ActivitiesService {
 
-  private baseUrl: string = 'http://localhost:3000/api/actividades'
+  private baseUrl: string = 'http://localhost:3000/api/actividades/'
 
   // injectamos el modulo httpClient para poder llamar a la BD
   constructor(
@@ -19,6 +19,13 @@ export class ActivitiesService {
   getAll(): Promise<any> {
     return lastValueFrom(
       this.httpClient.get<Actividad[]>(this.baseUrl)
+    )
+  }
+
+  // Con esta llamada obtenemos una única actividad
+  getById(id: string): Promise<any> {
+    return lastValueFrom(
+      this.httpClient.get<Actividad>(this.baseUrl + id)
     )
   }
 

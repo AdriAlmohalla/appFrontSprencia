@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Actividad } from 'src/app/interfaces/actividad';
-import { Horario } from 'src/app/interfaces/horario';
+
+import { OpinionSprencia } from 'src/app/interfaces/opinion-sprencia';
 import { ActivitiesService } from 'src/app/services/activities.service';
-import { TimesService } from 'src/app/services/times.service';
+import { OpinionsService } from 'src/app/services/opinions.service';
 
 @Component({
   selector: 'app-activities',
@@ -12,21 +13,22 @@ import { TimesService } from 'src/app/services/times.service';
 export class ActivitiesComponent {
 
   listadoActividades!: Actividad[]
-  listadoHorarios!: Horario[]
+  listadoOpiniones!: OpinionSprencia[]
 
   constructor(
     private activitiesService: ActivitiesService,
-    private timesService: TimesService
+    private opinionesService: OpinionsService
   ) { }
 
   async ngOnInit() {
     // llamamos a nuestro servicio para obtener todos los clientes
-    const clients = await this.activitiesService.getAll()
+    const actividades = await this.activitiesService.getAll()
     // llamamos a nuestro servicio para obtener todos los horarios
-    const times = await this.timesService.getAll()
+    const opinionesSprencia = await this.opinionesService.getAllFromSprenciaWithNames()
     // guardamos a todos los clientes para poder pasarselo a nuestros hijos en el HTML y así pintarlos en pantalla
-    this.listadoActividades = clients
-    console.log(clients)
+    this.listadoActividades = actividades
+    this.listadoOpiniones = opinionesSprencia
+    console.log(this.listadoActividades)
 
   }
 

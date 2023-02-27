@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DetalleActividadComponent } from './components/detalle-actividad/detalle-actividad.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
@@ -9,6 +10,7 @@ import { SignupComponent } from './components/signup/signup.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/actividades' },
   { path: 'actividades', component: ActivitiesComponent },
+  { path: 'actividades/:actividad', component: DetalleActividadComponent },
   { path: 'contacto', component: ContactComponent },
   { path: 'acceder', component: LoginComponent },
   { path: 'registro', component: SignupComponent }

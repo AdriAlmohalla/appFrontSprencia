@@ -3,8 +3,8 @@
   <div class="card-body">
     <h5 class="card-title">{{titulo}}</h5>
     <p class="card-text">{{descripcion}}</p>
-    <p class="card-text">{{horario}}</p>
+    <p class="card-text">{{horarioNombre}}</p>
     <p class="card-text">Precio: {{precio}}€</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a [routerLink]="['/actividades/', url]" class="btn btn-primary">Ver detalle</a>
   </div>
 </div>

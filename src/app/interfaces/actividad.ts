@@ -6,4 +6,7 @@ export interface Actividad {
   precio: number;
   resumen: string;
   categoria_id: number;
+  img: any;
+  id_horario: number;
+  horario_nombre: string;
 }

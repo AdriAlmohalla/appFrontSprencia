@@ -9,6 +9,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DetalleListadoActividadesComponent } from './components/detalle-listado-actividades/detalle-listado-actividades.component';
+import { OpinionesComponent } from './components/opiniones/opiniones.component';
+import { DetalleActividadComponent } from './components/detalle-actividad/detalle-actividad.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DetalleListadoActividadesComponent } from './components/detalle-listado
     ContactComponent,
     LoginComponent,
     SignupComponent,
-    DetalleListadoActividadesComponent
+    DetalleListadoActividadesComponent,
+    OpinionesComponent,
+    DetalleActividadComponent
   ],
   imports: [
     BrowserModule,

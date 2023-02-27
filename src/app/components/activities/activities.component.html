@@ -1,10 +1,18 @@
 <div class="container">
-  <h1>Actividades disponibles</h1>
+  <h1 class="my-5 text-center">Actividades disponibles</h1>
   <!-- usamos el componente detalle-listado para pintar todas las actividades en pantalla -->
   <div class="d-flex gap-3 flex-wrap justify-content-center mt-4">
     <app-detalle-listado-actividades *ngFor="let actividad of listadoActividades" [titulo]="actividad.titulo"
-      [descripcion]="actividad.descripcion" [horario]="actividad.horario_id" [precio]="actividad.precio">
+      [descripcion]="actividad.descripcion" [horario]="actividad.horario_id" [precio]="actividad.precio"
+      [horarioNombre]="actividad.horario_nombre" [idActividad]="actividad.id_actividad">
     </app-detalle-listado-actividades>
+  </div>
+
+  <h2 class="my-5 text-center">Opiniones sobre Sprencia</h2>
+  <div class="row text-center">
+    <app-opiniones *ngFor="let opinion of listadoOpiniones" [titulo]="opinion.titulo" [nombre]="opinion.nombre"
+      [apellidos]="opinion.apellidos" [puntuacion]="opinion.puntuacion" [opinionTexto]="opinion.opinion"
+      class="col-12 col-md-4"></app-opiniones>
   </div>
 
 </div>
