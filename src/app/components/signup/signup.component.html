@@ -1,1 +1,49 @@
-<p>signup works!</p>
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control" formControlName="username">
+      <p class="error text-danger" *ngIf="checkError('username', 'required')">El usuario es obligatorio</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre">
+      <p class="error text-danger" *ngIf="checkError('nombre', 'required')">El nombre es obligatorio</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Apellidos</label>
+      <input type="text" class="form-control" formControlName="apellidos">
+      <p class="error text-danger" *ngIf="checkError('apellidos', 'required')">Los apellidos son obligatorio</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Residencia (ciudad)</label>
+      <input type="text" class="form-control" formControlName="residencia">
+      <p class="error text-danger" *ngIf="checkError('residencia', 'required')">La residencia es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="email">
+      <p class="error text-danger" *ngIf="checkError('email', 'required')">El correo electrónico es requerido</p>
+      <p class="error text-danger" *ngIf="checkError('email', 'email')">El correo tiene que tener un formato válido</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contraseña</label>
+      <input type="password" class="form-control" formControlName="password">
+      <p class="error text-danger"
+        *ngIf="formulario.hasError('passwordcompare') && formulario.get('password')?.touched && formulario.get('comparePassword')?.touched">
+        La
+        contraseña no coincide</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Repite la contraseña:</label>
+      <input type="password" class="form-control" formControlName="comparePassword">
+      <p class="error text-danger"
+        *ngIf="formulario.hasError('passwordcompare') && formulario.get('comparePassword')?.touched">La
+        contraseña no coincide</p>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Registrarse</button>
+    <div *ngIf="hasError">
+      <p class="text-danger">Ha habido algun error el el formulario vuelve a probar</p>
+    </div>
+  </form>
+</div>
