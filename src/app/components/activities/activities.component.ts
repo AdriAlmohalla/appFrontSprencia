@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Actividad } from 'src/app/interfaces/actividad';
 
 import { OpinionSprencia } from 'src/app/interfaces/opinion-sprencia';
@@ -17,7 +18,8 @@ export class ActivitiesComponent {
 
   constructor(
     private activitiesService: ActivitiesService,
-    private opinionesService: OpinionsService
+    private opinionesService: OpinionsService,
+    private jwtHelper: JwtHelperService
   ) { }
 
   async ngOnInit() {
@@ -29,7 +31,6 @@ export class ActivitiesComponent {
     this.listadoActividades = actividades
     this.listadoOpiniones = opinionesSprencia
     console.log(this.listadoActividades)
-
   }
 
 }

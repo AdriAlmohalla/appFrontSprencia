@@ -12,6 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DetalleListadoActividadesComponent } from './components/detalle-listado-actividades/detalle-listado-actividades.component';
 import { OpinionesComponent } from './components/opiniones/opiniones.component';
 import { DetalleActividadComponent } from './components/detalle-actividad/detalle-actividad.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { DetalleActividadComponent } from './components/detalle-actividad/detall
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token_sprencia')
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

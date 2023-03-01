@@ -41,7 +41,7 @@ export class LoginComponent {
         icon: 'success',
         confirmButtonText: 'OK!'
       })
-      // dirigimos al usuario a la página de login para que entre en la aplicación
+      // dirigimos al usuario a la página de actividades
       this.router.navigate(['/actividades'])
     }
   }

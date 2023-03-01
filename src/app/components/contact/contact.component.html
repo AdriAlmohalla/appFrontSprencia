@@ -1,1 +1,49 @@
-<p>contact works!</p>
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Nombre de la empresa</label>
+      <input type="text" class="form-control" formControlName="nombre">
+      <p class="error text-danger" *ngIf="checkError('nombre', 'required')">El nombre es obligatorio</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">web</label>
+      <input type="text" class="form-control" formControlName="web">
+      <p class="error text-danger" *ngIf="checkError('web', 'required')">La web es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Localización</label>
+      <input type="text" class="form-control" formControlName="localizacion">
+      <p class="error text-danger" *ngIf="checkError('localizacion', 'required')">La Localización es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <select class="form-control" formControlName="categoria_id">
+        <option value="">Selecciona Categoría...</option>
+        <option value="1">Enseñanza</option>
+        <option value="2">Costa y Mar</option>
+        <option value="3">Deporte de Montaña</option>
+        <option value="4">Turismo</option>
+      </select>
+      <p class="error text-danger" *ngIf="checkError('localizacion', 'required')">La Localización es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Actividad que realiza la empresa</label>
+      <input type="text" class="form-control" formControlName="actividad">
+      <p class="error text-danger" *ngIf="checkError('actividad', 'required')">La actividad es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Por que quieren ser proveedores de Sprencia</label>
+      <input type="text-area" class="form-control" formControlName="razon">
+      <p class="error text-danger" *ngIf="checkError('razon', 'required')">La razón es obligatoria</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Teléfono de contacto</label>
+      <input type="text" class="form-control" formControlName="telefono">
+      <p class="error text-danger" *ngIf="checkError('telefono', 'required')">El Teléfono es obligatorio</p>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Enviar</button>
+    <div *ngIf="hasError">
+      <p class="text-danger">Ha habido algun error el el formulario vuelve a probar</p>
+    </div>
+  </form>
+</div>
