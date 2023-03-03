@@ -8,7 +8,10 @@
       <label class="form-label">Contraseña</label>
       <input type="password" class="form-control" formControlName="password">
     </div>
-    <input class="btn btn-primary" type="submit" value="Acceder">
+    <input class="btn btn-primary mb-2" type="submit" value="Acceder">
+    <div>
+      <a [routerLink]="['/registro']">Regrístrate aquí</a>
+    </div>
   </form>
   <div *ngIf="hasError">
     <p>Error en usuario y/o contraseña</p>

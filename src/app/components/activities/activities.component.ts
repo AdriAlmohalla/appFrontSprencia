@@ -19,8 +19,9 @@ export class ActivitiesComponent {
   constructor(
     private activitiesService: ActivitiesService,
     private opinionesService: OpinionsService,
-    private jwtHelper: JwtHelperService
-  ) { }
+  ) {
+
+  }
 
   async ngOnInit() {
     // llamamos a nuestro servicio para obtener todos los clientes
